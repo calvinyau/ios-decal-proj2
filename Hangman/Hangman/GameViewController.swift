@@ -67,14 +67,19 @@ class GameViewController: UIViewController {
     }
     
     func correctGuessFunc() {
-        let lastChar = guessWordLabel.text!.characters.last
-        if lastChar == "-" {
-            guessWordLabel.text!.removeAtIndex(guessWordLabel.text!.endIndex.predecessor())
-        }
-        else {
-            for _ in 0...1 {
+        if guessWordLabel.text?.isEmpty == false {
+            let lastChar = guessWordLabel.text!.characters.last
+            if lastChar == "-" {
                 guessWordLabel.text!.removeAtIndex(guessWordLabel.text!.endIndex.predecessor())
             }
+            else {
+                for _ in 0...1 {
+                    guessWordLabel.text!.removeAtIndex(guessWordLabel.text!.endIndex.predecessor())
+                }
+            }
+        }
+        else {
+            //alert win
         }
     }
     
