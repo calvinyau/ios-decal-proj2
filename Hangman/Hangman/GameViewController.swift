@@ -11,8 +11,6 @@ import UIKit
 class GameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var guessWordLabel: UILabel!
-    @IBOutlet weak var incorrectGuess: UIButton!
-    @IBOutlet weak var correctGuess: UIButton!
     @IBOutlet weak var incorrectGuessesLabel: UILabel!
     @IBOutlet weak var enterGuessBox: UITextField!
     @IBOutlet weak var makeAGuess: UIButton!
@@ -40,12 +38,11 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         correctGuesses = []
         incorrectGuesses = []
         incorrectGuessesLabel.text = "Incorrect Guesses: "
+        enterGuessBox.text = ""
         loadInterface()
     }
     
     func loadInterface() {
-        incorrectGuess.addTarget(self, action: "incorrectGuessFunc", forControlEvents: .TouchUpInside)
-        correctGuess.addTarget(self, action: "correctGuessFunc", forControlEvents: .TouchUpInside)
         makeAGuess.addTarget(self, action: "guessFunc", forControlEvents: .TouchUpInside)
         newGameButton.addTarget(self, action: "newGame", forControlEvents: .TouchUpInside)
     }
